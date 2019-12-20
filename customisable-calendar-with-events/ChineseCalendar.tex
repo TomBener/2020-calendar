@@ -1,0 +1,185 @@
+% THIS FILE MUST BE COMPILED WITH XELATEX OR LUALATEX. Click on the Overleaf Menu icon above the file list and set "Compiler" to "LuaLaTeX"
+
+% nobabel means you'll need to provide your own month names, week day headings,
+% etc
+\documentclass[12pt,nobabel,sundayweek]{cdcalendar}
+%% and here we do some settings for a calendar in Chinese
+%% (*not* the lunar calendar! Just localising the Gregorian calendar into
+%% Chinese)
+\usepackage{zh-mod}
+
+%% Use Roboto and Roboto Slab
+\usepackage[rm,light,osf,scale=0.94]{roboto}
+
+% \title{Desktop Calendar (fits CD jewel case) with Chinese Localisation}
+
+\usepackage{graphicx}
+\usepackage{fontawesome}
+\usepackage{wallpaper}
+\usepackage[fleqn]{amsmath}
+\usepackage{tikzlings,tikzducks}
+
+\graphicspath{{img/}}
+
+%% Define all event mark styles here
+\tikzset{holiday/.style={rectangle,fill=orange!70}}
+\tikzset{pink icon/.style={text=Pink,font=\large}}
+\tikzset{blue icon/.style={text=SkyBlue,font=\large}}
+
+\begin{document}
+
+%%%%%%
+% Cover
+%%%%%%
+
+\coverBgColor{RoyalBlue!40!black}
+\coverImage[实际印刷出来的台历效果。较小尺寸的（\texttt{small} 选项，9\,cm $\times$ 9.5\,cm）适用3.5寸软盘盒（家里有这些古董的可以派上用场了）。较大尺寸的（默认设定，11.7\,cm $\times$ 13.65\,cm）则适用CD盒。另外还有\texttt{giant}选项，一页A4纸就一个月历。]
+{actual}
+
+\coverTitle[
+font=\fontsize{26pt}{30pt}\heiti,
+text width=\linewidth,align=flush right,white]
+{二零二零年历，再努力！}
+
+\makeCover
+\clearpage 
+
+% Remove this line if you feel the background pattern is too annoying
+\TileWallPaper{.5\paperwidth}{.1\paperheight}{lightpaperfibers}
+
+%%%%
+
+% You may find the gap between illustrations and events too narrow;
+% Use this length to incrase it
+\setlength{\illusSkip}{1.5\ccwd}
+
+
+%%%%%%
+% Some settings for the monthly calendars
+%%%%%%
+\dayHeadingStyle{font=\sffamily\color{gray!90}}
+\sundayColor{red}
+\monthTitleStyle{font={\fontsize{42pt}{44pt}\bfseries\sffamily\fangsong}, red!50!RedViolet}
+\eventStyle{\scriptsize\songti}
+\renewcommand\printeventname[1]{{\heiti\color{black}#1}}
+
+
+%%%%%%
+% January 2020
+%%%%%%
+\illustration
+[Happy TikZ animals! This is an optional description about the illustrations.]
+{0.9\linewidth}{tikzlings}
+
+\begin{monthCalendar}{2020}{01}
+
+%%% events must be given AFTER \begin{monthCalendar}
+%%% Currently you must give events on the same page
+%%% as the monthly calendar.
+
+%% This is an one-day event
+\event[mark style=holiday]{2020-01-01}{}{新年元旦}
+%% This is a 5-day event
+\event[mark style=blue icon,marker=\faBriefcase]{2020-01-30}{5}{ACME大会}
+%% you could also write \event{2020-01-06}{2020-02-03}{ACME 大会}
+
+\end{monthCalendar}
+
+\clearpage
+
+%%%%%%
+% Feb 2020
+%%%%%%
+
+% Or you can put any stuff, really, with a caption if you want:
+\setlength{\mathindent}{0pt}
+\otherstuff[Fourier Transformation, one of the `math equations that changed the world'. \url{http://news.bitofnews.com/13-math-equations-that-changed-the-world/}]
+{\linewidth}
+{\huge\selectfont
+\[%
+\hat{f}(\xi) = \int^{\infty}_{-\infty} f(x) \mathrm{e}^{-2\pi ix\xi} \mathrm{d}x
+\]}
+
+\begin{monthCalendar}{2020}{02}
+
+%% Repeat the event if it spans two months
+\event[mark style=blue icon,marker=\faBriefcase]{2020-01-30}{5}{ACME大会}
+\event[mark style=pink icon,marker=\faBirthdayCake]{2020-02-07}{}{朋友生日}
+\event{2020-02-24}{}{死线！！}
+
+\end{monthCalendar}
+
+\clearpage
+
+%%% I... I can't search for more pics so will just show some cute animals
+\otherstuff{\linewidth}{\tikz[scale=1.5]\koala[crown];}
+\begin{monthCalendar}{2020}{03}
+\end{monthCalendar}
+
+\clearpage
+
+\otherstuff{\linewidth}{\tikz[scale=1.5]\duck[overleaf];}
+\begin{monthCalendar}{2020}{04}
+\end{monthCalendar}
+
+\clearpage
+
+\otherstuff{\linewidth}{\tikz[scale=1.5]\mouse[cheese];}
+\begin{monthCalendar}{2020}{05}
+\end{monthCalendar}
+
+\clearpage
+
+\otherstuff{\linewidth}{\tikz[scale=1.5]\duck[crozier,strawhat=red!80!white,bowtie=red];}
+\begin{monthCalendar}{2020}{06}
+\end{monthCalendar}
+
+\clearpage
+
+\otherstuff{\linewidth}{\tikz[scale=1.5]\sloth[icecream];}
+\begin{monthCalendar}{2020}{07}
+\end{monthCalendar}
+
+\clearpage
+
+\otherstuff{\linewidth}
+  {\tikz[scale=1.5]\duck[body=pink!50!white,bill=orange,
+  unicorn=magenta!60!violet, longhair=magenta!60!violet];}
+\begin{monthCalendar}{2020}{08}
+\end{monthCalendar}
+
+\clearpage
+
+\otherstuff{\linewidth}{\tikz[scale=1.5]\coati[umbrella=blue!60!black,handbag];}
+
+\begin{monthCalendar}{2020}{09}
+\end{monthCalendar}
+
+\clearpage
+
+\otherstuff{\linewidth}
+  {\tikz[scale=1.5]\duck[witch=black!50!gray,
+      longhair=red!80!black,
+      jacket=black!50!gray,
+      magicwand];}
+\begin{monthCalendar}{2020}{10}
+\end{monthCalendar}
+
+\clearpage
+
+\otherstuff{\linewidth}{
+\begin{tikzpicture}[scale=1.5]
+  \duck[snowduck=white!90!gray,eye=white];
+\end{tikzpicture}
+}
+\begin{monthCalendar}{2020}{11}
+\end{monthCalendar}
+
+\clearpage
+
+\otherstuff{\linewidth}{\tikz[scale=1.5]\marmot[santa,wine];}
+\begin{monthCalendar}{2020}{12}
+\end{monthCalendar}
+
+
+\end{document}
